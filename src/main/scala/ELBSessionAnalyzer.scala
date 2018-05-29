@@ -36,7 +36,7 @@ object ELBSessionAnalyzer {
     //Create sessions for these entries
     val userSessions = usergroupedData.map( entry => sessionSplitter.splitToSessions(entry._2, entry._1))
     //Explode the RDD, flattening it to sessions
-    var res = userSessions.flatMap( _.toStream )
+    var res = userSessions.flatMap( entry => entry )
     val converter = new CSVSessionConverter()
     //Sorting sessions by duration
     res = res.sortBy( _.getDuration, ascending = false )

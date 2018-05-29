@@ -32,9 +32,9 @@ class ELBAccessLogParser extends Serializable {
 
   protected def readToLogEntry(array: Array[String]): LogEntry = {
     val logEntry = new LogEntry()
-    val dateParser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+    val dateParser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
     logEntry.rawTimestamp = array(0)
-    logEntry.timestamp = dateParser.parse(array(0)).getTime
+    logEntry.timestamp = dateParser.parse(array(0).substring(0,19)).getTime
     logEntry.lbname = array(1)
     logEntry.visitorIp = array(2)
     logEntry.instanceIp = array(3)
