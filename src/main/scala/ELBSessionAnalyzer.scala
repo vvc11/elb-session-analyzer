@@ -25,7 +25,7 @@ object ELBSessionAnalyzer {
     }
 
 
-    val conf = new SparkConf().setAppName("Paytm Weblog Challenge")
+    val conf = new SparkConf().setAppName("Paytm Weblog Challenge").setMaster("local[*]")
     val sc = new SparkContext(conf)
     val file = sc.textFile(inputTextFileLocation)
     val parser = new ELBAccessLogParser()
@@ -43,7 +43,8 @@ object ELBSessionAnalyzer {
     //Save these sessions in output file
     val filewriter = new PrintWriter(new File(outputFileLocation))
     filewriter.append(converter.writeSchema() +"\n")
-    res.map( converter.writeSession ).collect().foreach(entry => filewriter.append(entry+"\n"))
+    res.collect().sortBy(entry => entry.getDuration ).map( converter.writeSession ).foreach(entry => filewriter
+      .append(entry+"\n"))
     filewriter.close()
     //When calculating average session, I'm including only those sessions where a user's activity lasted for more
     // than one page
