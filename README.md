@@ -3,15 +3,15 @@ This project creates session file from ELB access logs and finds out the average
 
 ## Building the Project ##
 
-**Prerequisites**
+**Prerequisites** <br/>
 JDK 1.8 <br/>
 Maven 3+ <br/>
 Scala 2.11 <br/>
 
-**Steps to build**
+**Steps to build** <br/>
 Move into the directory and execute "mvn clean install" command <br/>
 
-**Running the application**
+**Running the application** <br/>
 A folder called "target" will be created after the build, inside that you'll find "WebLogChallenge-1.0-SNAPSHOT.jar" <br />
 Submit this jar using spark-submit https://spark.apache.org/docs/latest/submitting-applications.html with --class argument as "ELBSessionAnalyzer" <br />
 The program takes additional 4 arguments in the following order : <br/>
@@ -21,22 +21,22 @@ The program takes additional 4 arguments in the following order : <br/>
 4. Destination of the summary file (has the average session duration in milliseconds, the number of sessions and the cumulative session duration of all the users in milliseconds) <br/>
 
 ## How was this problem solved ##
-**User Identification**
+**User Identification** <br/>
 I'm using a combination of IP address and port number to identify a user. That's what I learnt about Network Address Translation
 
-**Page Identification**
+**Page Identification** <br/>
 Each page is identified on basis of its first path parameter. Eg https://paytm.com/shop/toothbrush-oralb is counted as the same page type as https://paytm/shop/jacket-adidas-sports . So if a user navigates across all products in the shop category, they are counted as 1 distinct page.
 
-**Extracting Sessions**
+**Extracting Sessions** <br/>
 The entries in the ELB session log are first sorted by timestamp <br/>
 All of these entries are then grouped by IP address and port number <br />
 Sessions are calculated based on the max allowable delay between 2 activities <br />
 Once separated by the above logic, session duration is calculated by taking the difference of the minimum and maximum time of the sessions. <br />
 
-**Calculating Average Session Length**
+**Calculating Average Session Length** <br/>
 Only sessions where a user has browsed more than 1 page (may not be distinct) is calculated for getting the average session length
 
-## Results ##
+## Results ## <br/>
 For an average session time of 15 minutes, I got these results : <br />
 Average Session Length - 340541.4400845625 milliseconds (5.6 minutes) <br />
 Total number of sessions (where more than 1 page was visited) - 166977
