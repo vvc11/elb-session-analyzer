@@ -38,8 +38,8 @@ Only sessions where a user has browsed more than 1 page (may not be distinct) is
 
 ## Results ##
 For an average session time of 15 minutes, I got these results : <br />
-Average Session Length - 340541.4400845625 milliseconds (5.6 minutes) <br />
-Total number of sessions (where more than 1 page was visited) - 166977
+Average Session Length - 24417.471437359276 milliseconds (0.406 minutes) <br />
+Total number of sessions (where more than 1 page was visited) - 167439
 
 Most engaged users <br/>
 203.191.34.178:10400,2015-07-22T10:30:30.999963Z,2015-07-22T11:04:56.345504Z,4 (34 minutes 26 seconds)
