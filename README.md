@@ -36,12 +36,12 @@ Once separated by the above logic, session duration is calculated by taking the 
 **Calculating Average Session Length** <br/>
 Only sessions where a user has browsed more than 1 page (may not be distinct) is calculated for getting the average session length
 
-## Results ## <br/>
+## Results ##
 For an average session time of 15 minutes, I got these results : <br />
 Average Session Length - 340541.4400845625 milliseconds (5.6 minutes) <br />
 Total number of sessions (where more than 1 page was visited) - 166977
 
-
+Most engaged users
 78.46.60.71:58504,2015-07-22T10:30:28.057027Z,2015-07-22T11:04:52.919648Z,1 (34 minutes 24 seconds)
 213.239.204.204:35094,2015-07-22T10:30:29.067761Z,2015-07-22T11:04:47.927924Z,1 (34 minutes 18 seconds)
 103.29.159.138:57045,2015-07-22T10:30:30.027519Z,2015-07-22T11:04:31.881531Z,3 (34 minutes 1 second)
