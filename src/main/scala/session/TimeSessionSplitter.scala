@@ -20,7 +20,9 @@ class TimeSessionSplitter(userThreshold: Int) extends Serializable with SessionS
     var prevEntry = null.asInstanceOf[LogEntry]
     var sessions = List[Session]()
     var session = new Session(visitor)
-    for (logEntry <- logEntries) {
+    var entryList = logEntries.toList
+    entryList = entryList.sortBy( entry => entry.timestamp)
+    for (logEntry <- entryList) {
       if (prevEntry == null) {
         session.startTime = logEntry.timestamp
         session.endTime = logEntry.timestamp

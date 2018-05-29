@@ -32,7 +32,7 @@ object ELBSessionAnalyzer {
     val sessionSplitter = new TimeSessionSplitter(sessionTimeout)
     val logentryRdd = file.map( parser.readLineToLogEntry )
     //Group all logs by visitor IP and port
-    val usergroupedData = logentryRdd.sortBy( _.timestamp ).keyBy( _.visitorIp ).groupByKey
+    val usergroupedData = logentryRdd.keyBy( _.visitorIp ).groupByKey()
     //Create sessions for these entries
     val userSessions = usergroupedData.map( entry => sessionSplitter.splitToSessions(entry._2, entry._1))
     //Explode the RDD, flattening it to sessions
@@ -43,7 +43,8 @@ object ELBSessionAnalyzer {
     //Save these sessions in output file
     val filewriter = new PrintWriter(new File(outputFileLocation))
     filewriter.append(converter.writeSchema() +"\n")
-    res.collect().sortBy(entry => entry.getDuration ).map( converter.writeSession ).foreach(entry => filewriter
+    res.collect().sortBy(entry => entry.getDuration ).map( converter.writeSession ).foreach(entry =>
+      filewriter
       .append(entry+"\n"))
     filewriter.close()
     //When calculating average session, I'm including only those sessions where a user's activity lasted for more
