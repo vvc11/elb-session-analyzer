@@ -25,7 +25,7 @@ object ELBSessionAnalyzer {
     }
 
 
-    val conf = new SparkConf().setAppName("Paytm Weblog Challenge").setMaster("local[2]")
+    val conf = new SparkConf().setAppName("Paytm Weblog Challenge")
     val sc = new SparkContext(conf)
     val file = sc.textFile(inputTextFileLocation)
     val parser = new ELBAccessLogParser()
