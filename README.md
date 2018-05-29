@@ -38,14 +38,17 @@ Only sessions where a user has browsed more than 1 page (may not be distinct) is
 
 ## Results ##
 For an average session time of 15 minutes, I got these results : <br />
-Average Session Length - 340541.4400845625 milliseconds (5.6 minutes) <br />
-Total number of sessions (where more than 1 page was visited) - 166977
+Average Session Length - 24417.471437359276 milliseconds (0.406 minutes) <br />
+Total number of sessions (where more than 1 page was visited) - 167439
 
 Most engaged users <br/>
-78.46.60.71:58504,2015-07-22T10:30:28.057027Z,2015-07-22T11:04:52.919648Z,1 (34 minutes 24 seconds)
-213.239.204.204:35094,2015-07-22T10:30:29.067761Z,2015-07-22T11:04:47.927924Z,1 (34 minutes 18 seconds)
-103.29.159.138:57045,2015-07-22T10:30:30.027519Z,2015-07-22T11:04:31.881531Z,3 (34 minutes 1 second)
-203.191.34.178:10400,2015-07-22T10:30:38.106085Z,2015-07-22T11:04:35.920730Z,4 (33 minutes 57 seconds)
-122.169.141.4:50427,2015-07-22T10:30:47.039496Z,2015-07-22T11:04:42.956242Z,2 (33 minutes 55 seconds)
-122.169.141.4:11486,2015-07-22T10:31:21.003947Z,2015-07-22T11:04:54.960846Z,3 (33 minutes 33 seconds)
-103.29.159.62:55416,2015-07-22T10:30:38.040441Z,2015-07-22T11:04:04.924424Z,2 (33 minutes 26 seconds)
+203.191.34.178:10400,2015-07-22T10:30:30.999963Z,2015-07-22T11:04:56.345504Z,4 (34 minutes 26 seconds)
+103.29.159.138:57045,2015-07-22T10:30:29.265198Z,2015-07-22T11:04:53.971526Z,3 (34 minutes 24 seconds)
+213.239.204.204:35094,2015-07-22T10:30:29.067761Z,2015-07-22T11:04:51.351913Z,1 (34 minutes 22 seconds)
+78.46.60.71:58504,2015-07-22T10:30:28.057027Z,2015-07-22T11:04:49.581560Z,1 (34 minutes 21 seconds)
+54.169.191.85:15462,2015-07-22T10:30:32.171992Z,2015-07-22T11:04:53.859339Z,1 (34 minutes 21 seconds)
+103.29.159.186:27174,2015-07-22T10:30:33.109884Z,2015-07-22T11:04:53.307275Z,2 (34 minutes 20 seconds)
+122.169.141.4:50427,2015-07-22T10:30:35.881874Z,2015-07-22T11:04:54.152249Z,2 (34 minutes 19 seconds)
+
+## Disclaimer Regarding Time calculation ##
+I have omitted using milli seconds while calculating most engaged users.
